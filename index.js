@@ -11,12 +11,12 @@ function searchAndTweet(succeed, fail) {
     }
 
     tweets.forEach(function(tweet) {
-			var tweetId = tweet.id_str;
-			client.post('statuses/retweet/' + tweetId, function(err, tweet, id) {
-				// Will return an error if we try to retweet a tweet that we've already
-				// retweeted.
-				console.log(err || tweet.text);
-			});
+      var tweetId = tweet.id_str;
+      client.post('statuses/retweet/' + tweetId, function(err, tweet, id) {
+        // Will return an error if we try to retweet a tweet that we've already
+        // retweeted.
+        console.log(err || tweet.text);
+      });
     });
     succeed("success");
   });
