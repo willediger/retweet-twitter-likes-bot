@@ -1,11 +1,12 @@
 var Twitter = require('twitter');
 var credentials = require('./credentials');
+var followee = require('./twitter-followee');
 var client = new Twitter(credentials);
 
 // Runs a Twitter search for the specified `query` and retweets all the results.
 function searchAndTweet(succeed, fail) {
   console.log("search and tweet");
-  client.get('favorites/list', {screen_name: 'TuckerMax', count: 30}, function(err, tweets, response) {
+  client.get('favorites/list', {screen_name: followee, count: 30}, function(err, tweets, response) {
     if (!tweets.statuses) {
       fail(err);
     }
